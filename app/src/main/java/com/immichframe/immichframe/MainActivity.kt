@@ -159,8 +159,14 @@ class MainActivity : AppCompatActivity() {
             getNextImage()
             startImageTimer()
         }
-        loadSettings()
-
+        val savedUrl = getSharedPreferences("ImmichFramePrefs", MODE_PRIVATE).getString("webview_url", "") ?: ""
+        if (savedUrl.isBlank()) {
+            val intent = Intent(this, SettingsActivity::class.java)
+            settingsLauncher.launch(intent)
+        }
+        else {
+            loadSettings()
+        }
     }
 
     private fun showImage(imageResponse: Helpers.ImageResponse) {
@@ -473,13 +479,11 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("ImmichFramePrefs", MODE_PRIVATE)
         blurredBackground = sharedPreferences.getBoolean("blurredBackground", true)
         showCurrentDate = sharedPreferences.getBoolean("showCurrentDate", true)
-        var savedUrl =
-            sharedPreferences.getString("webview_url", getString(R.string.webview_url)) ?: ""
+        var savedUrl = sharedPreferences.getString("webview_url", "") ?: ""
         useWebView = sharedPreferences.getBoolean("useWebView", true)
         keepScreenOn = sharedPreferences.getBoolean("keepScreenOn", true)
         val authSecret = sharedPreferences.getString("authSecret", "") ?: ""
         val screenDim = sharedPreferences.getBoolean("screenDim", false)
-        webView.setBackgroundColor(if (savedUrl == getString(R.string.webview_url)) Color.WHITE else Color.TRANSPARENT)
 
         webView.visibility = if (useWebView) View.VISIBLE else View.GONE
         imageView1.visibility = if (useWebView) View.GONE else View.VISIBLE

@@ -390,8 +390,7 @@ class ScreenSaverService : DreamService() {
         val sharedPreferences = getSharedPreferences("ImmichFramePrefs", MODE_PRIVATE)
         blurredBackground = sharedPreferences.getBoolean("blurredBackground", true)
         showCurrentDate = sharedPreferences.getBoolean("showCurrentDate", true)
-        var savedUrl =
-            sharedPreferences.getString("webview_url", getString(R.string.webview_url)) ?: ""
+        var savedUrl = sharedPreferences.getString("webview_url", "") ?: ""
         useWebView = sharedPreferences.getBoolean("useWebView", true)
         val authSecret = sharedPreferences.getString("authSecret", "") ?: ""
 

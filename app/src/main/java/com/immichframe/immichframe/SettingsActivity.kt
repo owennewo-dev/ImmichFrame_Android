@@ -87,12 +87,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun loadSettings() {
         val sharedPreferences = getSharedPreferences("ImmichFramePrefs", MODE_PRIVATE)
-        editTextUrl.setText(
-            sharedPreferences.getString(
-                "webview_url",
-                getString(R.string.webview_url)
-            )
-        )
+        editTextUrl.setText(sharedPreferences.getString("webview_url", "" ))
         editTextAuthSecret.setText(sharedPreferences.getString("authSecret", "") ?: "")
         chkUseWebView.isChecked = sharedPreferences.getBoolean("useWebView", true)
         chkKeepScreenOn.isChecked = sharedPreferences.getBoolean("keepScreenOn", true)

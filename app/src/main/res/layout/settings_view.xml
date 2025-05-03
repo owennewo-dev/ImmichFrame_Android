@@ -1,121 +1,143 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ImmichFrame server URL:"
-        tools:ignore="HardcodedText" />
-
-    <EditText
-        android:id="@+id/editTextUrl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:autofillHints="web-url"
-        android:hint="http://192.168.0.100:8080"
-        android:inputType="textUri"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Authorization Secret:"
-        tools:ignore="HardcodedText" />
-
-    <EditText
-        android:id="@+id/editTextAuthSecret"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:autofillHints="secret"
-        android:hint="optional"
-        android:inputType="textPassword"
-        tools:ignore="HardcodedText" />
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/chkUseWebView"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Use WebView?"
-            tools:ignore="HardcodedText" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/chkKeepScreenOn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:text="Keep Screen On?"
-            tools:ignore="HardcodedText" />
-
-    </LinearLayout>
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/chkBlurredBackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Blurred Background?"
-        android:visibility="gone"
-        tools:ignore="HardcodedText" />
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/chkShowCurrentDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Show Current Date?"
-        android:visibility="gone"
-        tools:ignore="HardcodedText" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:orientation="vertical">
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/chkDimScreen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Set Screen Dim Hours?"
+            android:text="ImmichFrame server URL:"
             tools:ignore="HardcodedText" />
 
         <EditText
-            android:id="@+id/editTextDimTimeRange"
+            android:id="@+id/editTextUrl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:autofillHints="timeframe"
-            android:hint="e.g., 22:00-07:00"
-            android:inputType="text"
+            android:autofillHints="web-url"
+            android:hint="http://192.168.0.100:8080"
+            android:inputType="textUri"
             tools:ignore="HardcodedText" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Authorization Secret:"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/editTextAuthSecret"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:autofillHints="secret"
+            android:hint="optional"
+            android:inputType="textPassword"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/chkUseWebView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Use WebView?"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/chkKeepScreenOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Keep Screen On?"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/chkBlurredBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Blurred Background?"
+            android:visibility="gone"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/chkShowCurrentDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Show Current Date?"
+            android:visibility="gone"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/chkDimScreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set Screen Dim Hours?"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/editTextDimTimeRange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:autofillHints="timeframe"
+                android:hint="e.g., 22:00-07:00"
+                android:inputType="text"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonAndroidSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Android Settings"
+            android:visibility="gone"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/buttonSaveUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save Settings"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/helpTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="⬆️ Open Settings\n🆗 Play/Pause\n⬅️ Previous Image\n➡️ Next Image\n👇 Open Settings (swipe)"
+                android:padding="8dp"
+                android:textSize="14sp"
+                android:visibility="visible"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/buttonAndroidSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Android Settings"
-        android:visibility="gone"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/buttonSaveUrl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save Settings"
-        tools:ignore="HardcodedText" />
-
-</LinearLayout>
+</ScrollView>
