@@ -623,6 +623,37 @@ class MainActivity : AppCompatActivity() {
                     return true
                 }
             }
+            if (!useWebView) {
+                when (event.keyCode) {
+                    KeyEvent.KEYCODE_DPAD_LEFT -> {
+                        val safePreviousImage = previousImage
+                        if (safePreviousImage != null) {
+                            stopImageTimer()
+                            showImage(safePreviousImage)
+                            startImageTimer()
+                        }
+                        return true
+                    }
+
+                    KeyEvent.KEYCODE_DPAD_RIGHT -> {
+                        stopImageTimer()
+                        getNextImage()
+                        startImageTimer()
+                        return true
+                    }
+
+                    KeyEvent.KEYCODE_SPACE ->{
+                        zoomAnimator?.cancel()
+                        if (isImageTimerRunning) {
+                            stopImageTimer()
+                        } else {
+                            getNextImage()
+                            startImageTimer()
+                        }
+                        return true
+                    }
+                }
+            }
         }
         return super.dispatchKeyEvent(event)
     }
