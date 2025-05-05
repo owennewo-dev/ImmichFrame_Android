@@ -28,10 +28,11 @@ android {
 
     defaultConfig {
         applicationId = "com.immichframe.immichframe"
-        minSdk = 23
+        minSdk = 19
         targetSdk = 35
         versionCode = 40
         versionName = "1.0.40.0"
+        multiDexEnabled = true
     }
 
     buildTypes {
@@ -74,6 +75,7 @@ dependencies {
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.retrofit)
     implementation(libs.retrofitgson)
+    implementation(libs.androidx.multidex)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
