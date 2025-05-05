@@ -572,6 +572,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSettingsLoaded() {
+        if (serverSettings.imageFill){
+            imageView1.scaleType = ImageView.ScaleType.CENTER_CROP
+            imageView2.scaleType = ImageView.ScaleType.CENTER_CROP
+        }
+        else{
+            imageView1.scaleType = ImageView.ScaleType.FIT_CENTER
+            imageView2.scaleType = ImageView.ScaleType.FIT_CENTER
+        }
         if (serverSettings.showPhotoDate || serverSettings.showImageLocation) {
             txtPhotoInfo.visibility = View.VISIBLE
             txtPhotoInfo.textSize =
@@ -621,6 +629,37 @@ class MainActivity : AppCompatActivity() {
                     val spaceEvent = KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_SPACE)
                     dispatchKeyEvent(spaceEvent)
                     return true
+                }
+            }
+            if (!useWebView) {
+                when (event.keyCode) {
+                    KeyEvent.KEYCODE_DPAD_LEFT -> {
+                        val safePreviousImage = previousImage
+                        if (safePreviousImage != null) {
+                            stopImageTimer()
+                            showImage(safePreviousImage)
+                            startImageTimer()
+                        }
+                        return true
+                    }
+
+                    KeyEvent.KEYCODE_DPAD_RIGHT -> {
+                        stopImageTimer()
+                        getNextImage()
+                        startImageTimer()
+                        return true
+                    }
+
+                    KeyEvent.KEYCODE_SPACE ->{
+                        zoomAnimator?.cancel()
+                        if (isImageTimerRunning) {
+                            stopImageTimer()
+                        } else {
+                            getNextImage()
+                            startImageTimer()
+                        }
+                        return true
+                    }
                 }
             }
         }

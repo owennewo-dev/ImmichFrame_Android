@@ -123,7 +123,6 @@ object Helpers {
     )
 
     data class ServerSettings(
-        val imageStretch: String,
         val margin: String,
         val interval: Int,
         val transitionDuration: Double,
@@ -144,6 +143,7 @@ object Helpers {
         val showWeatherDescription: Boolean,
         val unattendedMode: Boolean,
         val imageZoom: Boolean,
+        val imageFill: Boolean,
         val layout: String,
         val language: String
     )
