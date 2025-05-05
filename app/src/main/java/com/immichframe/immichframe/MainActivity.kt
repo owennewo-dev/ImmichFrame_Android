@@ -572,6 +572,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSettingsLoaded() {
+        if (serverSettings.imageFill){
+            imageView1.scaleType = ImageView.ScaleType.CENTER_CROP
+            imageView2.scaleType = ImageView.ScaleType.CENTER_CROP
+        }
+        else{
+            imageView1.scaleType = ImageView.ScaleType.FIT_CENTER
+            imageView2.scaleType = ImageView.ScaleType.FIT_CENTER
+        }
         if (serverSettings.showPhotoDate || serverSettings.showImageLocation) {
             txtPhotoInfo.visibility = View.VISIBLE
             txtPhotoInfo.textSize =
